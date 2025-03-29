@@ -186,7 +186,9 @@ class SVRAG_Phi(BaseModel):
                     response = requests.get(image_file)
                     image = Image.open(BytesIO(response.content))
                 else:
-                    image = Image.open(image_file)
+                    base_dir = '/home/jingchen/sv-rag/demo_data/'
+                    img_path = os.path.join(base_dir, image_file)  # 拼接完整路径
+                    image = Image.open(img_path)
                 return image
             
             all_embeddings = []

@@ -23,7 +23,7 @@ if __name__ == "__main__":
         model = SVRAG_InternVL2(model_name='puar-playground/Col-InternVL2-4B')
 
     # load test data
-    test_data = json.load(open('slidevqa_dev.json', 'r'))
+    test_data = json.load(open('demo_data/vqa_preview.json', 'r'))
     data_point = test_data['aguidetoindonesiasnewgovernment-141104024232-conversion-gate02_95']
     
     # set input

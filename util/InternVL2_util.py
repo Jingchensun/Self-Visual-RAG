@@ -107,7 +107,9 @@ def load_image(image_file, input_size=448, max_num=20):
         response = requests.get(image_file)
         image = Image.open(BytesIO(response.content)).convert('RGB')
     else:
-        image = Image.open(image_file).convert('RGB')
+        base_dir = '/home/jingchen/sv-rag/demo_data/'
+        img_path = os.path.join(base_dir, image_file) 
+        image = Image.open(img_path).convert('RGB')
 
     # image = resize_image_with_threshold(image, 1024)
     # print(image.size)
