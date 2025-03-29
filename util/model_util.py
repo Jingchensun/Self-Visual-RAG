@@ -4,13 +4,15 @@ import torch
 import requests
 from io import BytesIO
 from typing import List, Tuple, Union
-os.system('clear')
+# os.system('clear')
 
 from peft import PeftModel
 from abc import ABC, abstractmethod
 from transformers import AutoProcessor
 from transformers import AutoModelForCausalLM 
 from transformers import AutoModel, AutoTokenizer
+import os
+from PIL import Image
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -82,7 +84,9 @@ class BaseModel(ABC):
             response = requests.get(img_dir)
             image = Image.open(BytesIO(response.content))
         else:
-            image = Image.open(img_dir)
+            base_dir = '/home/jingchen/sv-rag/demo_data/'
+            img_path = os.path.join(base_dir, img_dir)  # 拼接完整路径
+            image = Image.open(img_path)
 
         return image
     

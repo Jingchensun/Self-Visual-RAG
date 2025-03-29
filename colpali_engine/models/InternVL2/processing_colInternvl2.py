@@ -109,7 +109,8 @@ class ColInternProcessor(BaseVisualRetrieverProcessor):
     def __init__(self, model_name='OpenGVLab/InternVL2-4B', num_image_token=256, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
+        self.tokenizer.padding_side = 'left'  
         self.num_image_token: int = num_image_token
         
     @property

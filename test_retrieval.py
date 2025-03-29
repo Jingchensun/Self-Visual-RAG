@@ -1,7 +1,7 @@
 import json
 from tqdm import tqdm
 import os
-os.system('clear')
+# os.system('clear')
 from util.model_util import SVRAG_InternVL2, SVRAG_Phi
 from util.print_result import print_top_k_accuracy
 import argparse
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     elif args.model == 'InternVL2':
         model = SVRAG_InternVL2(model_name='puar-playground/Col-InternVL2-4B')
 
-    test_data = json.load(open('slidevqa_dev.json', 'r'))
+    test_data = json.load(open('demo_data/vqa_preview.json', 'r'))
     
     results = []
     pbar = tqdm(list(test_data.keys()), ncols=120)

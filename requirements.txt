@@ -1,6 +1,6 @@
 apex==0.9.10dev
 configue==6.0.0
-datasets==3.2.0
+datasets>=2.19.0,<3.0.0
 einops==0.8.1
 flash_attn==2.7.4.post1
 huggingface_hub==0.28.1
